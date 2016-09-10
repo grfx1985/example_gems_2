@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-  expose :articles, ->{ Article.all }
-  expose :article
+  expose :articles, ->{ Article.all.map{ |article| ArticleDecorator.new(article) } }
+  expose :article, decorate: ->(article){ ArticleDecorator.new(article) }
 
   def create
     if article.save
