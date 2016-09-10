@@ -29,6 +29,12 @@ gem 'bootstrap-sass'
 
 gem 'simple_form'
 
+gem 'draper'
+
+gem 'paperclip'
+
+gem 'pundit'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
