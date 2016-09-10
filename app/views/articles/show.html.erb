@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Updated:</strong>
+  <%= article.updated_at %>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= article.title %>
 </p>
@@ -8,6 +13,7 @@
 <p>
   <strong>Content:</strong>
   <%= article.content %>
+  <%= article.emphatic %>
 </p>
 
 <p>

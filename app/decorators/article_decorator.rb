@@ -14,8 +14,8 @@ class ArticleDecorator < Draper::Decorator
     h.content_tag(:strong, "Awesome decorator")
   end
 
-  def published_at
-    object.published_at.strftime("%A, %B %e")
+  def updated_at
+    object.updated_at.strftime("%A, %B %e")
   end
 
   def moderation_status
