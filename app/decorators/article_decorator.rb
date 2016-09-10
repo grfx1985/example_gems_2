@@ -4,6 +4,11 @@ class ArticleDecorator < Draper::Decorator
   # Define presentation-specific methods here. Helpers are accessed through
   # `helpers` (aka `h`). You can override attributes, for example:
   #
+  #
+  def owned_by_user
+    object.user.email
+  end
+
   def created_at
     helpers.content_tag :span, class: 'time' do
       object.created_at.strftime("%a %m/%d/%y")

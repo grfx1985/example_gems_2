@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   expose :articles, ->{ Article.all.map{ |article| ArticleDecorator.new(article) } }
-  expose :article, decorate: ->(article){ ArticleDecorator.new(article) }
+  expose :article, decorate: ->(article){ ArticleDecorator.new(article) }, scope: ->{ current_user.articles }
 
   def create
     if article.save
@@ -26,6 +26,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content, :published_at, :avatar, :moderated)
+    params.require(:article).permit(:title, :content, :published_at, :avatar, :moderated, :user_id)
   end
 end
