@@ -4,6 +4,14 @@ class ArticlePolicy < ApplicationPolicy
       user.admin?
     end
 
+    def new?
+      user.admin?
+    end
+
+    def edit?
+      user.admin?
+    end
+
     def index?
       true
     end
