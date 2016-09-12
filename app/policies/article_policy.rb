@@ -21,7 +21,8 @@ class ArticlePolicy < ApplicationPolicy
     end
 
     def show?
-      scope.where(:id => record.id).exists? && user == record.user
+      true
+      # scope.where(:id => record.id).exists? && user == record.user
     end
 
     def destroy?

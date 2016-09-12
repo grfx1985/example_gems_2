@@ -1,13 +1,9 @@
 class ArticlesController < ApplicationController
 
   expose :articles, ->{ decorated }
-  expose :article, decorate: ->(article){ ArticleDecorator.new(article) }, scope: ->{ users_articles }
+  expose :article, decorate: ->(article){ ArticleDecorator.new(article) }
 
   before_action :set_article, except: [:index]
-
-  def users_articles
-    current_user.articles
-  end
 
   def decorated
     Article.all.map{ |article| ArticleDecorator.new(article) }
@@ -24,6 +20,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    article.user = current_user
     if article.save
       redirect_to article, notice: 'Article was successfully created.'
     else
